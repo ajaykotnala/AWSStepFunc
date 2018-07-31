@@ -5,7 +5,7 @@
 <meta name='subject' content='aws-lambda-function-error-handling-with-aws-step-functions'>
 
 # AWS-lambda-function-error-handling-with-aws-step-functions
-[![Release](https://img.shields.io/badge/release-1.0.0-brightgreen.svg)](#) [![Updated](https://img.shields.io/badge/date-June%2031%2C%202018-orange.svg)](#) [![NuGet Badge](https://buildstats.info/nuget/Amazon.Lambda.Core)](https://www.nuget.org/packages/Amazon.Lambda.Core/)(#) [![.NET](https://img.shields.io/badge/.NET-%3E%3D%204.5.1-ff69b4.svg)](#)
+[![Release](https://img.shields.io/badge/release-1.0.2-brightgreen.svg)](#) [![Updated](https://img.shields.io/badge/date-June%2031%2C%202018-orange.svg)](#) [![NuGet Badge](https://buildstats.info/nuget/Amazon.Lambda.Core)](https://www.nuget.org/packages/Amazon.Lambda.Core/) [![.NET](https://img.shields.io/badge/.NET-%3E%3D%204.5.1-ff69b4.svg)](#)
 
 
 ## What Is AWS Step Functions?
