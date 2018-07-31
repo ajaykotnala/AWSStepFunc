@@ -1,0 +1,10 @@
+D:\Sample Examples\AWSServerless\AWSServerless\bin\Debug\netcoreapp2.1\AWSServerless.deps.json
+D:\Sample Examples\AWSServerless\AWSServerless\bin\Debug\netcoreapp2.1\AWSServerless.runtimeconfig.json
+D:\Sample Examples\AWSServerless\AWSServerless\bin\Debug\netcoreapp2.1\AWSServerless.runtimeconfig.dev.json
+D:\Sample Examples\AWSServerless\AWSServerless\bin\Debug\netcoreapp2.1\AWSServerless.dll
+D:\Sample Examples\AWSServerless\AWSServerless\bin\Debug\netcoreapp2.1\AWSServerless.pdb
+D:\Sample Examples\AWSServerless\AWSServerless\obj\Debug\netcoreapp2.1\AWSServerless.csproj.CoreCompileInputs.cache
+D:\Sample Examples\AWSServerless\AWSServerless\obj\Debug\netcoreapp2.1\AWSServerless.AssemblyInfoInputs.cache
+D:\Sample Examples\AWSServerless\AWSServerless\obj\Debug\netcoreapp2.1\AWSServerless.AssemblyInfo.cs
+D:\Sample Examples\AWSServerless\AWSServerless\obj\Debug\netcoreapp2.1\AWSServerless.dll
+D:\Sample Examples\AWSServerless\AWSServerless\obj\Debug\netcoreapp2.1\AWSServerless.pdb

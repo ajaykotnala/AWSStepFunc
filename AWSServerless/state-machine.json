@@ -1,0 +1,108 @@
+﻿{
+  "Comment": "State Machine",
+  "StartAt": "FirstStep",
+  "States": {
+    "FirstStep": {
+      "Type": "Task",
+      "Resource": "${FirstStep.Arn}",
+      "TimeoutSeconds": 300,
+      "HeartbeatSeconds": 60,
+      "Retry": [
+        {
+          "ErrorEquals": [ "Lambda.ServiceException", "Lambda.SdkClientException" ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": [ "CustomException" ],
+          "Next": "CustomErrorFallback"
+        },
+        {
+          "ErrorEquals": [ "States.TaskFailed" ],
+          "Next": "ReservedTypeFallback"
+        },
+        {
+          "ErrorEquals": [ "Lambda.Unknown" ],
+          "ResultPath": "$.error-info",
+          "Next": "RecoveryState"
+        },
+        {
+          "ErrorEquals": [ "States.Timeout" ],
+          "Next": "TimeoutFallback"
+        },
+        {
+          "ErrorEquals": [ "States.ALL" ],
+          "Next": "CatchAllFallback"
+        }
+
+      ],
+      "Next": "Greeting",
+      "Comment": "Run the first step Lambda function"
+    },
+
+    "Greeting": {
+      "Type": "Task",
+      "Resource": "${GreetingTask.Arn}",
+      "TimeoutSeconds": 300,
+      "HeartbeatSeconds": 60,
+      "Retry": [
+        {
+          "ErrorEquals": [ "States.Timeout", "CustomException" ],
+          "IntervalSeconds": 1,
+          "MaxAttempts": 2,
+          "BackoffRate": 2.0
+        }
+      ],
+      "Next": "WaitToActivate",
+      "Comment": "Run the HelloWorld Lambda function"
+    },
+
+    "WaitToActivate": {
+      "Type": "Wait",
+      "SecondsPath": "$.WaitInSeconds",
+      "Next": "Salutations",
+      "Comment": "wait state after hello world state"
+    },
+
+    "Salutations": {
+      "Type": "Task",
+      "Resource": "${SalutationsTask.Arn}",
+      "TimeoutSeconds": 300,
+      "HeartbeatSeconds": 60,
+      "Next": "SuccessState"
+    },
+    "SuccessState": {
+      "Type": "Succeed"
+    },
+
+    "CustomErrorFallback": {
+      "Type": "Pass",
+      "Result": "This is a fallback from a custom Lambda function exception",
+      "End": true
+    },
+    "ReservedTypeFallback": {
+      "Type": "Pass",
+      "Result": "This is a fallback from a reserved error code",
+      "End": true
+    },
+    "CatchAllFallback": {
+      "Type": "Fail",
+      "Cause": "Invalid response.",
+      "Error": "somewhere something fails in task or api call."
+    },
+    "TimeoutFallback": {
+      "Type": "Pass",
+      "Result": "This is a fallback from execution throw time out error.",
+      "End": true
+    },
+    "RecoveryState": {
+      "Type": "Wait",
+      "SecondsPath": "$.WaitInSeconds",
+      "Next": "FirstStep",
+      "Comment": "wait state  and then recovery of first stage"
+    }
+  }
+}
