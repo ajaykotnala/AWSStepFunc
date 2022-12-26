@@ -12,7 +12,7 @@
 AWS Step Functions is a web service that enables you to coordinate the components of distributed applications and microservices using visual workflows. You build applications from individual components that each perform a discrete function, or task, allowing you to scale and change applications quickly. Step Functions provides a reliable way to coordinate components and step through the functions of your application. Step Functions provides a graphical console to visualize the components of your application as a series of steps. It automatically triggers and tracks each step, and retries when there are errors, so your application executes in order and as expected, every time. Step Functions logs the state of each step, so when things do go wrong, you can diagnose and debug problems quickly.
 
 
-## Project Visual Flow? 
+## AWS Step Fuction WorkFlow
 
 <img src="https://github.com/ajaykotnala/AWSStepFunc/blob/master/AWSServerless/img/visual-flow.PNG" />
 
